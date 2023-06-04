@@ -15,27 +15,63 @@ static int ft_check_extension(char *file, char *suffix)
 	return (0);
 }
 
-static char	**ft_get_map(char *file)
+int	ft_get_map_size(char *file)
 {
-	int fd;
-	int i;
-	char **map;
+	int		fd;
+	int		size;
+	char	*line;
 
 	fd = open(file, O_RDONLY);
 	if (!fd)
 		ft_error("Error");
-	i = 0;
-	while (map[i])
-		map[i++] = get_next_line(fd);
+	size = 0;
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		size++;
+		free(line);
+	}
+	close(fd);
+	return (size);
+}
+
+static char	**ft_get_map(char *file)
+{
+	int fd;
+	char **map;
+	char *tmp;
+	char  *str;
+
+	fd = open(file, O_RDONLY);
+	if (!fd)
+		ft_error("Error");
+	tmp = get_next_line(fd);
+	while (tmp)
+	{
+		str = ft_custom_strjoin(&str, tmp);
+		free(tmp);
+		tmp = get_next_line(fd);
+	}
+	map = ft_split(str, '\n');
+	free(tmp);
+	free(str);
 	return (map);
 }
 
-void	ft_parse_input(char *file)
+char	**ft_parse_input(char *file)
 {
-	int fd;
 	char	**map;
 
 	if (!file || !ft_check_extension(file, ".ber"))
 		ft_error("Error");
 	map = ft_get_map(file);
+	if (!map)
+		ft_error("Error");
+	int i = 0;
+	while(map[i])
+		printf("%s\n", map[i++]);
+	ft_handle_checker(map);
+	return (map);
 }

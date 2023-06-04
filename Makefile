@@ -2,19 +2,20 @@ NAME= so_long
 
 SRC= ./src/main.c \
 ./src/parsing.c \
-./src/utils.c\
+./src/utils.c \
+./src/handle_checker.c \
 
 OBJ=$(SRC:%.c=%.o)
 
 
 INCLUDES= -I./includes -I./utils/libft -I./utils/get-next-line -I./utils/ft_printf
 
-FLAGS= -Wall -Wextra -Werror $(INCLUDES) # -fsanitize=address
+FLAGS= -Wall -Wextra -Werror -fsanitize=address $(INCLUDES)
 
 CC= cc
 
 %.o:%.c
-	$(CC) $(FLAGS)-c $^ -o $@
+	$(CC) $(FLAGS) -c $^ -o $@
 
 all : $(NAME) 
 
