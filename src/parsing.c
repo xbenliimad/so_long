@@ -15,28 +15,6 @@ static int ft_check_extension(char *file, char *suffix)
 	return (0);
 }
 
-int	ft_get_map_size(char *file)
-{
-	int		fd;
-	int		size;
-	char	*line;
-
-	fd = open(file, O_RDONLY);
-	if (!fd)
-		ft_error("Error");
-	size = 0;
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-		size++;
-		free(line);
-	}
-	close(fd);
-	return (size);
-}
-
 static char	**ft_get_map(char *file)
 {
 	int fd;
@@ -69,9 +47,9 @@ char	**ft_parse_input(char *file)
 	map = ft_get_map(file);
 	if (!map)
 		ft_error("Error");
-	int i = 0;
-	while(map[i])
-		printf("%s\n", map[i++]);
+	// int i = 0;
+	// while(map[i])
+	// 	printf("%s\n", map[i++]);
 	ft_handle_checker(map);
 	return (map);
 }

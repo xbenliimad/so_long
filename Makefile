@@ -4,6 +4,7 @@ SRC= ./src/main.c \
 ./src/parsing.c \
 ./src/utils.c \
 ./src/handle_checker.c \
+./src/custom.c \
 
 OBJ=$(SRC:%.c=%.o)
 
@@ -20,7 +21,9 @@ CC= cc
 all : $(NAME) 
 
 $(NAME) : $(OBJ) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
-	$(CC) $(FLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o $@
+	$(CC) $(FLAGS) $^ -o $@
+	# $(CC) $(FLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o $@
+
 
 ./utils/libft/libft.a :
 	make -C ./utils/libft  bonus
