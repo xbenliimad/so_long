@@ -6,7 +6,7 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:46:51 by ibenli            #+#    #+#             */
-/*   Updated: 2023/06/05 21:33:33 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/06/05 22:08:12 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ t_map   ft_get_map_size(char **map);
 
 // utils
 void	ft_error(char *message);
+void    ft_free_map(char **map);
+
+// Cutom
 char	*ft_custom_strjoin(char **s1, char *s2);
 
 

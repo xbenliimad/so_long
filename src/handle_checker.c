@@ -9,7 +9,6 @@ static void  ft_mapIsRectangle(char **map)
     i = 0;
     while (map[++i])
     {
-        printf("i = %d\n", i);
         if (ft_strlen(map[i]) != line_size)
             ft_error("Error");
     }
@@ -38,10 +37,38 @@ static void ft_check_walls(char **map)
     }
 }
 
+void    ft_check_map_composition(char **map)
+{
+    t_map   map_comp;
+    int     i;
+    int     j;
 
+    i = 0;
+    map_comp.collectible = 0;
+    map_comp.starting_pos = 0;
+    map_comp.map_exit = 0;
+    while (map[i])
+    {
+        j = 0;
+        while (map[i][j])
+        {
+            if (map[i][j] == 'C')
+                map_comp.collectible++;
+            else if (map[i][j] == 'P')
+                map_comp.starting_pos++;
+            else if (map[i][j] == 'E')
+                map_comp.map_exit++;
+            j++;
+        }
+        i++;
+    }
+    if (map_comp.collectible < 1 || map_comp.starting_pos != 1 || map_comp.map_exit != 1)
+        ft_error("Error");
+}
 
 void    ft_handle_checker(char **map)
 {
     ft_mapIsRectangle(map);
     ft_check_walls(map);
+    ft_check_map_composition(map);
 }

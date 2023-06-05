@@ -47,9 +47,6 @@ char	**ft_parse_input(char *file)
 	map = ft_get_map(file);
 	if (!map)
 		ft_error("Error");
-	// int i = 0;
-	// while(map[i])
-	// 	printf("%s\n", map[i++]);
 	ft_handle_checker(map);
 	return (map);
 }

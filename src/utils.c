@@ -6,6 +6,16 @@ void    ft_error(char *message)
     exit(1);
 }
 
+void    ft_free_map(char **map)
+{
+    int i;
+
+    i = 0;
+    while (map[i])
+        free(map[i++]);
+    free(map);
+}
+
 t_map   ft_get_map_size(char **map)
 {
     t_map map_info;
