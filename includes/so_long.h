@@ -6,7 +6,7 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:46:51 by ibenli            #+#    #+#             */
-/*   Updated: 2023/06/07 15:54:48 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/06/07 18:35:25 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,21 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 # include <string.h>
-#include <errno.h>
+# include <errno.h>
 # include <mlx.h>
+// # include <X11/keysym.h>
+
 
 typedef	struct s_data
 {
-	void	*mlx;
+	void	*mlx_ptr;
+	void	*win_ptr;
 	void	*img_collectible;
 	void	*img_player;
 	void	*img_wall;
 	void	*img_exit;
 	void	*img_space;
 }	t_data;
-
 
 typedef struct s_player
 {
@@ -52,6 +54,9 @@ char	**ft_parse_input(char *file);
 // Checker
 void    ft_handle_checker(char **map);
 t_map   ft_get_map_size(char **map);
+
+// Hanlding the game
+void    ft_handle_game(char **map);
 
 // utils
 void		ft_error(char *message);

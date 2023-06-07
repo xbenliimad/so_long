@@ -6,6 +6,7 @@ SRC= ./src/main.c \
 ./src/handle_checker.c \
 ./src/custom.c \
 ./src/handle_flood_fill.c \
+./src/handle_game.c \
 
 OBJ=$(SRC:%.c=%.o)
 
