@@ -6,7 +6,7 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:46:51 by ibenli            #+#    #+#             */
-/*   Updated: 2023/06/06 21:01:13 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/06/07 15:54:48 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,18 @@
 # include "ft_printf.h"
 # include <string.h>
 #include <errno.h>
-// # include <mlx.h>
+# include <mlx.h>
+
+typedef	struct s_data
+{
+	void	*mlx;
+	void	*img_collectible;
+	void	*img_player;
+	void	*img_wall;
+	void	*img_exit;
+	void	*img_space;
+}	t_data;
+
 
 typedef struct s_player
 {

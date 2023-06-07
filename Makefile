@@ -22,8 +22,7 @@ CC= cc
 all : $(NAME) 
 
 $(NAME) : $(OBJ) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
-	$(CC) $(FLAGS) $^ -o $@
-	# $(CC) $(FLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o $@
+	$(CC) $(FLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o $@
 
 
 ./utils/libft/libft.a :

@@ -34,9 +34,9 @@ void    ft_flood_fille(char **map)
     player_pos = ft_get_player_pos(duped_map);
     ft_dfs(duped_map, player_pos.x, player_pos.y);
     map_comp = ft_check_map_composition(duped_map, 0);
-    int i = 0;
-    while (duped_map[i])
-        printf("%s\n", duped_map[i++]);
+    // int i = 0;
+    // while (duped_map[i])
+    //     printf("%s\n", duped_map[i++]);
     free(duped_map);
     if (map_comp.collectible != 0 || map_comp.starting_pos != 0 || map_comp.map_exit != 0)
         ft_error("Error");
