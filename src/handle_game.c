@@ -11,6 +11,8 @@ int	handle_close(t_data *data)
 int	handle_input(int keycode, void *data)
 {
     (void) data;
+    static int  moves_count;
+
 	if (keycode == 0)
         printf("Left\n");
     else if (keycode == 1)
@@ -19,6 +21,10 @@ int	handle_input(int keycode, void *data)
         printf("Right\n");
     else if (keycode == 13)
         printf("Top\n");
+    else if (keycode == 53)
+        exit(0);
+    moves_count++;
+    printf("Number of moves : %d\n", moves_count);
 	return (0);
 }
 
@@ -40,7 +46,7 @@ void    ft_handle_game(char **map)
     }
     mlx_hook(data.win_ptr, 17, 0, &handle_close, &data);
     mlx_key_hook(data.win_ptr, &handle_input, &data);
-    mlx_loop(data.mlx_ptr);
+    mlx_loop(data.mlx_ptr); 
     mlx_destroy_window(data.mlx_ptr, data.win_ptr);
     free(data.mlx_ptr);
 }
