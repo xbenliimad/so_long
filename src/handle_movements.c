@@ -15,10 +15,15 @@ void    ft_handle_up(t_data *data, t_player player_pos, int collectibles)
         return ;
     else if ((data->map)[player_pos.x - 1][player_pos.y] == 'C')
         (data->map)[player_pos.x - 1][player_pos.y] = '0';
-    else if (!collectibles && (data->map)[player_pos.x - 1][player_pos.y] == 'E')
+    else if ((data->map)[player_pos.x - 1][player_pos.y] == 'E')
     {
-        ft_printf("MBROUK!\n");
-        exit(0);
+        if (collectibles)
+            return ;
+        else
+        {
+            ft_printf("MBROUK!\n");
+            exit(0);
+        }
     }
     ft_swap(&(data->map)[player_pos.x - 1][player_pos.y], &(data->map)[player_pos.x][player_pos.y]);
 }
@@ -29,10 +34,15 @@ void    ft_handle_down(t_data *data, t_player player_pos, int collectibles)
         return ;
     else if ((data->map)[player_pos.x + 1][player_pos.y] == 'C')
         (data->map)[player_pos.x + 1][player_pos.y] = '0';
-    else if (!collectibles && (data->map)[player_pos.x + 1][player_pos.y] == 'E')
+    else if ((data->map)[player_pos.x + 1][player_pos.y] == 'E')
     {
-        ft_printf("MBROUK!\n");
-        exit(0);
+         if (collectibles)
+            return ;
+        else
+        {
+            ft_printf("MBROUK!\n");
+            exit(0);
+        }
     }
     ft_swap(&(data->map)[player_pos.x + 1][player_pos.y], &(data->map)[player_pos.x][player_pos.y]);
 }
@@ -43,10 +53,15 @@ void    ft_handle_left(t_data *data, t_player player_pos, int collectibles)
         return ;
     else if ((data->map)[player_pos.x][player_pos.y - 1] == 'C')
         (data->map)[player_pos.x][player_pos.y - 1] = '0';
-    else if (!collectibles && (data->map)[player_pos.x][player_pos.y - 1] == 'E')
+    else if ((data->map)[player_pos.x][player_pos.y - 1] == 'E')
     {
-        ft_printf("MBROUK!\n");
-        exit(0);
+        if (collectibles)
+            return ;
+        else
+        {
+            ft_printf("MBROUK!\n");
+            exit(0);
+        }
     }
     ft_swap(&(data->map)[player_pos.x][player_pos.y - 1], &(data->map)[player_pos.x][player_pos.y]);
 }
@@ -57,10 +72,15 @@ void    ft_handle_right(t_data *data, t_player player_pos, int collectibles)
         return ;
     else if ((data->map)[player_pos.x][player_pos.y + 1] == 'C')
         (data->map)[player_pos.x][player_pos.y + 1] = '0';
-    else if (!collectibles && (data->map)[player_pos.x][player_pos.y + 1] == 'E')
+    else if ((data->map)[player_pos.x][player_pos.y + 1] == 'E')
     {
-        ft_printf("MBROUK!\n");
-        exit(0);
+         if (collectibles)
+            return ;
+        else
+        {
+            ft_printf("MBROUK!\n");
+            exit(0);
+        }
     }
     ft_swap(&(data->map)[player_pos.x][player_pos.y + 1], &(data->map)[player_pos.x][player_pos.y]);
 }
@@ -72,7 +92,6 @@ int    ft_handle_movements(int keycode, t_data *data)
     int         collectibles;
 
     collectibles = ft_count_collectibles(data->map);
-    printf("Collectibles : %d\n", collectibles);
     player_pos = ft_get_player_pos(data->map);
     if ((keycode == 119 || keycode == 65362) && ++count)
         ft_handle_up(data, player_pos, collectibles);
@@ -89,6 +108,5 @@ int    ft_handle_movements(int keycode, t_data *data)
     }
     ft_handle_images(data->map, data);
     ft_printf("Moves : %d\n", count);
-    printf("Collectibles : %d\n", collectibles);
     return (0);
 }
