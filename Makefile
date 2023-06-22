@@ -7,11 +7,13 @@ SRC= ./src/main.c \
 ./src/custom.c \
 ./src/handle_flood_fill.c \
 ./src/handle_game.c \
+./src/handle_images.c \
+./src/handle_movements.c \
 
 OBJ=$(SRC:%.c=%.o)
 
 
-INCLUDES= -I./includes -I./utils/libft -I./utils/get-next-line -I./utils/ft_printf
+INCLUDES= -I./includes -I./utils/libft -I./utils/get-next-line -I./utils/ft_printf -I./usr/include
 
 FLAGS= -Wall -Wextra -Werror -fsanitize=address $(INCLUDES)
 
@@ -23,7 +25,8 @@ CC= cc
 all : $(NAME) 
 
 $(NAME) : $(OBJ) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
-	$(CC) $(FLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o $@
+	$(CC) $(FLAGS) $^ -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $@
+	# $(CC) $(FLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o $@
 
 
 ./utils/libft/libft.a :

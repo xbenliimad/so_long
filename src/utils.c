@@ -74,3 +74,25 @@ char    **ft_dup_map(char **map)
 	}
 	return (duped_map);
 }
+
+int	ft_count_collectibles(char **map)
+{
+	int i;
+	int j;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'C')
+				count++;
+			j++;
+		}
+		i++;
+	}
+	return (count);
+}

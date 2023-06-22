@@ -37,7 +37,7 @@ void    ft_flood_fille(char **map)
     // int i = 0;
     // while (duped_map[i])
     //     printf("%s\n", duped_map[i++]);
-    free(duped_map);
+    ft_free_map(duped_map);
     if (map_comp.collectible != 0 || map_comp.starting_pos != 0 || map_comp.map_exit != 0)
         ft_error("Error");
 }
