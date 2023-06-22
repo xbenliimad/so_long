@@ -26,7 +26,7 @@ void    ft_handle_up(t_data *data, t_player player_pos, int collectibles, int *c
         }
     }
     ft_swap(&(data->map)[player_pos.x - 1][player_pos.y], &(data->map)[player_pos.x][player_pos.y]);
-    ft_printf("Moves : %d\n", ++(*count));
+    mlx_string_put(data->mlx_ptr, data->win_ptr, 60, 60, 0xFFFFFF, ft_itoa(++(*count)));
 }
 
 void    ft_handle_down(t_data *data, t_player player_pos, int collectibles, int *count)
@@ -46,7 +46,7 @@ void    ft_handle_down(t_data *data, t_player player_pos, int collectibles, int 
         }
     }
     ft_swap(&(data->map)[player_pos.x + 1][player_pos.y], &(data->map)[player_pos.x][player_pos.y]);
-    ft_printf("Moves : %d\n", ++(*count));
+    mlx_string_put(data->mlx_ptr, data->win_ptr, 60, 60, 0xFFFFFF, ft_itoa(++(*count)));
 }
 
 void    ft_handle_left(t_data *data, t_player player_pos, int collectibles, int *count)
@@ -68,7 +68,7 @@ void    ft_handle_left(t_data *data, t_player player_pos, int collectibles, int 
         }
     }
     ft_swap(&(data->map)[player_pos.x][player_pos.y - 1], &(data->map)[player_pos.x][player_pos.y]);
-    ft_printf("Moves : %d\n", ++(*count));
+    mlx_string_put(data->mlx_ptr, data->win_ptr, 60, 60, 0xFFFFFF, ft_itoa(++(*count)));
 }
 
 void    ft_handle_right(t_data *data, t_player player_pos, int collectibles, int *count)
@@ -90,7 +90,7 @@ void    ft_handle_right(t_data *data, t_player player_pos, int collectibles, int
         }
     }
     ft_swap(&(data->map)[player_pos.x][player_pos.y + 1], &(data->map)[player_pos.x][player_pos.y]);
-    ft_printf("Moves : %d\n", ++(*count));
+    mlx_string_put(data->mlx_ptr, data->win_ptr, 60, 60, 0xFFFFFF, ft_itoa(++(*count)));
 }
 
 int    ft_handle_movements(int keycode, t_data *data)

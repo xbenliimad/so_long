@@ -24,7 +24,7 @@ OBJ=$(SRC:%.c=%.o)
 
 OBJ_BONUS=$(SRC_BONUS:%.c=%.o)
 
-INCLUDES= -I./includes -I./utils/libft -I./utils/get-next-line -I./utils/ft_printf -I./usr/include
+INCLUDES= -I./includes -I./utils/libft -I./utils/get-next-line -I./utils/ft_printf #-I./usr/include
 
 FLAGS= -Wall -Wextra -Werror -fsanitize=address $(INCLUDES)
 
@@ -36,11 +36,12 @@ CC= cc
 all : $(NAME) 
 
 $(NAME) : $(OBJ) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
-	$(CC) $(FLAGS) $^ -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $@
-	# $(CC) $(FLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o $@
+	$(CC) $(FLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o $@
+	# $(CC) $(FLAGS) $^ -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $@
 
-bonus : $(OBJ_BONUS) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
-	$(CC) $(FLAGS) $^ -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o so_long
+bonus : ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a $(OBJ_BONUS)
+	$(CC) $(FLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o so_long
+	# $(CC) $(FLAGS) $^ -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o so_long
 
 ./utils/libft/libft.a :
 	make -C ./utils/libft  bonus

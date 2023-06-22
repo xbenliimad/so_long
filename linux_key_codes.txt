@@ -1,3 +1,4 @@
+FOR LINUX :
 ESC : 65307
 W : 119
 S : 115
@@ -7,3 +8,15 @@ up : 65362
 down : 65364
 left : 65361
 right : 65363
+
+
+FOR MAC :
+ESC : 53
+W : 13
+S : 1
+A : 0
+D : 2
+up : 126
+down : 125
+left : 123
+right : 124

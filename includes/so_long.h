@@ -6,7 +6,7 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:46:51 by ibenli            #+#    #+#             */
-/*   Updated: 2023/06/22 18:26:42 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/06/22 20:00:48 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "ft_printf.h"
 # include <string.h>
 # include <errno.h>
-# include "../mlx_linux/mlx.h"
-// # include <X11/keysym.h>
+// # include "../mlx_linux/mlx.h"
+# include <mlx.h>
 
 typedef struct s_player
 {
