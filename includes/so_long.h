@@ -6,7 +6,7 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:46:51 by ibenli            #+#    #+#             */
-/*   Updated: 2023/06/21 22:57:29 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/06/22 18:26:42 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ char        **ft_dup_map(char **map);
 t_player    ft_get_player_pos(char **map);
 t_map    ft_check_map_composition(char **map, int state);
 int	ft_count_collectibles(char **map);
+void	ft_free_struct(t_data *data);
 
 // Images
 void ft_handle_images(char **map, t_data *data);

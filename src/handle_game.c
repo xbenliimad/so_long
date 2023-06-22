@@ -4,6 +4,7 @@
 int	ft_handle_close(t_data *data)
 {
     mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+    free(data->map);
     exit(0);
     return (0);
 }

@@ -2,11 +2,11 @@
 
 void    ft_get_images(t_data *data)
 {
-	data->img_wall = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/img_wall.xpm", &data->w, &data->h);
-	data->img_space = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/img_space.xpm", &data->w, &data->h);
-	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/img_player.xpm", &data->w, &data->h);
-	data->img_collectible = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/img_collectible.xpm", &data->w, &data->h);
-	data->img_exit = mlx_xpm_file_to_image(data->mlx_ptr, "./assets/img_exit.xpm", &data->w, &data->h);
+	data->img_wall = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_wall.xpm", &data->w, &data->h);
+	data->img_space = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_space.xpm", &data->w, &data->h);
+	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_player_right.xpm", &data->w, &data->h);
+	data->img_collectible = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_collectible.xpm", &data->w, &data->h);
+	data->img_exit = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_exit.xpm", &data->w, &data->h);
 }
 
 

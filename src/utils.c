@@ -96,3 +96,15 @@ int	ft_count_collectibles(char **map)
 	}
 	return (count);
 }
+
+void	ft_free_struct(t_data *data)
+{
+	free(data->img_collectible);
+	free(data->img_exit);
+	free(data->img_player);
+	free(data->img_space);
+	free(data->img_wall);
+	free(data->mlx_ptr);
+	free(data->win_ptr);
+	ft_free_map(data->map);
+}
