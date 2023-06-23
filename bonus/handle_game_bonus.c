@@ -14,6 +14,7 @@ void    ft_handle_game(char **map)
     t_data      data;
     t_map       map_info;
 
+    data.counter = 0;
     map_info = ft_get_map_size(map);
     data.mlx_ptr = mlx_init();
     if (!(data.mlx_ptr))

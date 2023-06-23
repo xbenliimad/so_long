@@ -6,7 +6,7 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:46:51 by ibenli            #+#    #+#             */
-/*   Updated: 2023/06/22 23:27:31 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/06/23 03:01:28 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "ft_printf.h"
 # include <string.h>
 # include <errno.h>
-# include <mlx.h>
-// # include "../mlx_linux/mlx.h"
+// # include <mlx.h>
+# include "../mlx_linux/mlx.h"
 
 typedef struct s_player
 {
@@ -40,6 +40,7 @@ typedef	struct s_data
 {
 	int			w;
 	int			h;
+	int			counter;
 	char		**map;
 	void		*mlx_ptr;
 	void		*win_ptr;

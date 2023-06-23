@@ -1,5 +1,14 @@
 #include "so_long_bonus.h"
 
+void    ft_handle_score(int counter, t_data *data)
+{
+	char	*moves;
+
+	moves = ft_itoa(counter);
+	mlx_string_put (data->mlx_ptr, data->win_ptr, 27, 33, 0x00FFFFFF, moves);
+	free(moves);
+}
+
 void    ft_get_images(t_data *data)
 {
 	data->img_wall = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_wall.xpm", &data->w, &data->h);
@@ -42,4 +51,5 @@ void ft_handle_images(char **map, t_data *data)
         }
         i++;
     }
+    ft_handle_score(data->counter, data);
 }
