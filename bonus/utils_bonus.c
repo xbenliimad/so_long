@@ -104,7 +104,6 @@ void	ft_free_struct(t_data *data)
 	free(data->img_player);
 	free(data->img_space);
 	free(data->img_wall);
-	free(data->mlx_ptr);
-	free(data->win_ptr);
 	ft_free_map(data->map);
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 }

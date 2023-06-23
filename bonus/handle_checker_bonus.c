@@ -47,6 +47,7 @@ t_map    ft_check_map_composition(char **map, int state)
     map_comp.collectible = 0;
     map_comp.starting_pos = 0;
     map_comp.map_exit = 0;
+    map_comp.enemy = 0;
     while (map[++i])
     {
         j = -1;
@@ -58,6 +59,8 @@ t_map    ft_check_map_composition(char **map, int state)
                 map_comp.starting_pos++;
             else if (map[i][j] == 'E')
                 map_comp.map_exit++;
+            else if (map[i][j] == 'V')
+                map_comp.enemy++;
             else if (state == 1 && (map[i][j] != '0' && map[i][j] != '1'))
                 ft_error("Error");
         }
@@ -72,7 +75,7 @@ void    ft_handle_checker(char **map)
     ft_mapIsRectangle(map);
     ft_check_walls(map);
     map_comp = ft_check_map_composition(map, 1);
-    if (map_comp.collectible < 1 || map_comp.starting_pos != 1 || map_comp.map_exit != 1)
+    if (map_comp.collectible < 1 || map_comp.starting_pos != 1 || map_comp.map_exit != 1 || map_comp.enemy < 1)
         ft_error("Error");
     ft_flood_fille(map);
 }

@@ -4,7 +4,6 @@
 int	ft_handle_close(t_data *data)
 {
     mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-    free(data->map);
     exit(0);
     return (0);
 }
@@ -27,5 +26,6 @@ void    ft_handle_game(char **map)
     data.map = map;
     mlx_hook(data.win_ptr, 2, 1L << 0, &ft_handle_movements, &data);
     mlx_hook(data.win_ptr, 17, 1L << 0, &ft_handle_close, &data);
-    mlx_loop(data.mlx_ptr); 
+    mlx_loop_hook(data.mlx_ptr, &ft_handle_animations, &data);
+    mlx_loop(data.mlx_ptr);
 }

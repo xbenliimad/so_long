@@ -6,7 +6,7 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:46:51 by ibenli            #+#    #+#             */
-/*   Updated: 2023/06/23 03:01:28 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/06/23 18:40:42 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "ft_printf.h"
 # include <string.h>
 # include <errno.h>
-// # include <mlx.h>
-# include "../mlx_linux/mlx.h"
+# include <mlx.h>
+// # include "../mlx_linux/mlx.h"
 
 typedef struct s_player
 {
@@ -34,6 +34,7 @@ typedef struct s_map
 	int starting_pos;
 	int collectible;
 	int map_exit;
+	int	enemy;
 }   t_map;
 
 typedef	struct s_data
@@ -49,6 +50,7 @@ typedef	struct s_data
 	void		*img_wall;
 	void		*img_exit;
 	void		*img_space;
+	void		*img_enemy;
 }	t_data;
 
 // Parsing
@@ -62,6 +64,7 @@ t_map   ft_get_map_size(char **map);
 void    ft_handle_game(char **map);
 int    ft_handle_movements(int keycode, t_data *data);
 
+
 // utils
 void		ft_error(char *message);
 void    	ft_free_map(char **map);
@@ -74,6 +77,7 @@ void	ft_free_struct(t_data *data);
 // Images
 void ft_handle_images(char **map, t_data *data);
 void    ft_get_images(t_data *data);
+int    ft_handle_animations(t_data *data);
 
 // ft_flood_fill
 void    ft_flood_fille(char **map);
