@@ -17,15 +17,16 @@ static int ft_check_extension(char *file, char *suffix)
 
 static char	**ft_get_map(char *file)
 {
-	int fd;
-	char **map;
-	char *tmp;
-	char  *str;
+	int		fd;
+	char	**map;
+	char	*tmp;
+	char	*str;
 
 	fd = open(file, O_RDONLY);
 	if (!fd)
 		ft_error("Error");
 	tmp = get_next_line(fd);
+	str = NULL;
 	while (tmp)
 	{
 		str = ft_custom_strjoin(&str, tmp);
@@ -33,7 +34,6 @@ static char	**ft_get_map(char *file)
 		tmp = get_next_line(fd);
 	}
 	map = ft_split(str, '\n');
-	free(tmp);
 	free(str);
 	return (map);
 }

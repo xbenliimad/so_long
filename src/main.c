@@ -6,7 +6,7 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:48:12 by ibenli            #+#    #+#             */
-/*   Updated: 2023/06/21 21:40:18 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/06/24 14:54:23 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int main(int ac, char *av[])
         printf("Map is valid.\n");
     ft_handle_game(map);
     ft_free_map(map);
+    system("leaks so_long");
     return (0);
 }

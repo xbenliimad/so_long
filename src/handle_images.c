@@ -7,6 +7,7 @@ void    ft_get_images(t_data *data)
 	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_player_right.xpm", &data->w, &data->h);
 	data->img_collectible = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_collectible.xpm", &data->w, &data->h);
 	data->img_exit = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_exit.xpm", &data->w, &data->h);
+
 }
 
 

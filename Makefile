@@ -26,7 +26,7 @@ OBJ_BONUS=$(SRC_BONUS:%.c=%.o)
 
 INCLUDES= -I./includes -I./utils/libft -I./utils/get-next-line -I./utils/ft_printf #-I./usr/include
 
-FLAGS= -Wall -Wextra -Werror -fsanitize=address $(INCLUDES)
+FLAGS= -Wall -Wextra -Werror $(INCLUDES) #-fsanitize=address
 
 CC= cc
 

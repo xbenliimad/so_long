@@ -49,6 +49,7 @@ char	*ft_custom_strjoin(char **s1, char *s2)
 		return (NULL);
 	ft_custom_strlcat(str, *s1, ft_custom_strlen(*s1) + 1);
 	ft_custom_strlcat(str, s2, t_len + 1);
-	free(*s1);
+	if (*s1)
+		free(*s1);
 	return (str);
 }

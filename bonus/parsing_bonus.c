@@ -26,6 +26,7 @@ static char	**ft_get_map(char *file)
 	if (!fd)
 		ft_error("Error");
 	tmp = get_next_line(fd);
+	str = NULL;
 	while (tmp)
 	{
 		str = ft_custom_strjoin(&str, tmp);

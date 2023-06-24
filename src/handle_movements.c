@@ -22,6 +22,7 @@ void    ft_handle_up(t_data *data, t_player player_pos, int collectibles, int *c
         else
         {
             ft_printf("CONGRATS!!!! :D\n");
+            system("leaks so_long");
             exit(0);
         }
     }
@@ -42,6 +43,7 @@ void    ft_handle_down(t_data *data, t_player player_pos, int collectibles, int 
         else
         {
             ft_printf("CONGRATS!!!! :D\n");
+            system("leaks so_long");
             exit(0);
         }
     }
@@ -64,6 +66,7 @@ void    ft_handle_left(t_data *data, t_player player_pos, int collectibles, int 
         else
         {
             ft_printf("CONGRATS!!!! :D\n");
+            system("leaks so_long");
             exit(0);
         }
     }
@@ -86,6 +89,7 @@ void    ft_handle_right(t_data *data, t_player player_pos, int collectibles, int
         else
         {
             ft_printf("CONGRATS!!!! :D\n");
+            system("leaks so_long");
             exit(0);
         }
     }
@@ -109,7 +113,7 @@ int    ft_handle_movements(int keycode, t_data *data)
         ft_handle_left(data, player_pos, collectibles, &count);
     else if ((keycode == 2 || keycode == 124))
         ft_handle_right(data, player_pos, collectibles, &count);
-    else if (keycode == 65307)
+    else if (keycode == 53)
     {
         mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 		exit(0);
