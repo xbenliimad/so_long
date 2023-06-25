@@ -1,8 +1,8 @@
 #include "so_long.h"
 
-static int ft_check_component(char component)
+static int ft_check_component(char *component)
 {
-    if (component != 'P' && component != 'C' && component != 'E' && component != '0')
+    if (*component != 'P' && *component != 'C' && *component != 'E' && *component != '0')
         return (1);
     return (0);
 }
@@ -12,7 +12,9 @@ static void    ft_dfs(char **map, int i, int j)
     t_map   map_info;
 
     map_info = ft_get_map_size(map);
-    if (i < 0 || i >= map_info.rows || j < 0 || j >= map_info.columns || ft_check_component(map[i][j]))
+    if (map[i][j] == 'E')
+        map[i][j] = 1;
+    if (i < 0 || i >= map_info.rows || j < 0 || j >= map_info.columns || ft_check_component(&map[i][j]))
         return ;
     else
     {

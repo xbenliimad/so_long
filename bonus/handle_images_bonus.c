@@ -17,6 +17,8 @@ void    ft_get_images(t_data *data)
 	data->img_collectible = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_collectible.xpm", &data->w, &data->h);
 	data->img_exit = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_exit.xpm", &data->w, &data->h);
 	data->img_enemy = mlx_xpm_file_to_image(data->mlx_ptr, "./textures/img_enemy_active.xpm", &data->w, &data->h);
+	if (!data->img_wall || !data->img_space || !data->img_player || !data->img_collectible || !data->img_exit)
+        ft_error("Error");
 }
 
 int    ft_handle_animations(t_data *data)

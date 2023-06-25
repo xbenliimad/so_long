@@ -12,6 +12,8 @@ static void    ft_dfs(char **map, int i, int j)
     t_map   map_info;
 
     map_info = ft_get_map_size(map);
+    if (map[i][j] == 'E')
+        map[i][j] = 1;
     if (i < 0 || i >= map_info.rows || j < 0 || j >= map_info.columns || ft_check_component(map[i][j]))
         return ;
     else
@@ -39,5 +41,5 @@ void    ft_flood_fille(char **map)
     //     printf("%s\n", duped_map[i++]);
     ft_free_map(duped_map);
     if (map_comp.collectible != 0 || map_comp.starting_pos != 0 || map_comp.map_exit != 0)
-        ft_error("Error");
+        ft_error("Invalid path.");
 }

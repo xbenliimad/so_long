@@ -10,7 +10,7 @@ static void  ft_mapIsRectangle(char **map)
     while (map[++i])
     {
         if (ft_strlen(map[i]) != line_size)
-            ft_error("Error");
+            ft_error("Map is not rectangle.");
     }
 }
 
@@ -28,11 +28,11 @@ static void ft_check_walls(char **map)
         while (map[i][j])
         {
             if (map[0][j] != '1' || map[map_size.rows - 1][j] != '1')
-                ft_error("Error");
+                ft_error("Walls are invalid.");
             j++;
         }
         if (map[i][0] != '1' || map[i][map_size.columns - 1] != '1')
-            ft_error("Error");
+            ft_error("Walls are invalid.");
         i++;
     }
 }
@@ -62,7 +62,7 @@ t_map    ft_check_map_composition(char **map, int state)
             else if (map[i][j] == 'V')
                 map_comp.enemy++;
             else if (state == 1 && (map[i][j] != '0' && map[i][j] != '1'))
-                ft_error("Error");
+                ft_error("Map composition is not valid.");
         }
     }
     return (map_comp);
@@ -76,6 +76,6 @@ void    ft_handle_checker(char **map)
     ft_check_walls(map);
     map_comp = ft_check_map_composition(map, 1);
     if (map_comp.collectible < 1 || map_comp.starting_pos != 1 || map_comp.map_exit != 1 || map_comp.enemy < 1)
-        ft_error("Error");
+        ft_error("Map composition is not valid.");
     ft_flood_fille(map);
 }

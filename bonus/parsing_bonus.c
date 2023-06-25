@@ -24,7 +24,7 @@ static char	**ft_get_map(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (!fd)
-		ft_error("Error");
+		ft_error("Couldn't open the fd.");
 	tmp = get_next_line(fd);
 	str = NULL;
 	while (tmp)
@@ -44,10 +44,10 @@ char	**ft_parse_input(char *file)
 	char	**map;
 
 	if (!file || !ft_check_extension(file, ".ber"))
-		ft_error("Error");
+		ft_error("File extension is not valid.");
 	map = ft_get_map(file);
 	if (!map)
-		ft_error("Error");
+		ft_error("Couldn't get the map.");
 	ft_handle_checker(map);
 	return (map);
 }
