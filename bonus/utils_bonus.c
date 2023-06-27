@@ -1,14 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/27 16:48:44 by ibenli            #+#    #+#             */
+/*   Updated: 2023/06/27 16:48:45 by ibenli           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
-void    ft_error(char *message)
+void	ft_free_map(char **map)
 {
-	ft_printf("Error\n%s\n", message);
-	exit(1);
-}
-
-void    ft_free_map(char **map)
-{
-	int i;
+	int	i;
 
 	i = 0;
 	while (map[i])
@@ -16,24 +22,24 @@ void    ft_free_map(char **map)
 	free(map);
 }
 
-t_map   ft_get_map_size(char **map)
+t_map	ft_get_map_size(char **map)
 {
-	t_map map_info;
+	t_map	map_info;
 
 	map_info.rows = 0;
-	while(map[map_info.rows])
+	while (map[map_info.rows])
 		map_info.rows++;
 	map_info.columns = 0;
-	while(map[0][map_info.columns])
+	while (map[0][map_info.columns])
 		map_info.columns++;
 	return (map_info);
 }
 
-t_player    ft_get_player_pos(char **map)
+t_player	ft_get_player_pos(char **map)
 {
-	int         i;
-	int         j;
-	t_player    player_pos;
+	int			i;
+	int			j;
+	t_player	player_pos;
 
 	player_pos.x = 0;
 	player_pos.y = 0;
@@ -56,11 +62,11 @@ t_player    ft_get_player_pos(char **map)
 	return (player_pos);
 }
 
-char    **ft_dup_map(char **map)
+char	**ft_dup_map(char **map)
 {
-	int     i;
-	t_map   map_size;
-	char    **duped_map;
+	int		i;
+	t_map	map_size;
+	char	**duped_map;
 
 	map_size = ft_get_map_size(map);
 	duped_map = ft_calloc(map_size.rows + 1, sizeof(char *));
@@ -77,8 +83,8 @@ char    **ft_dup_map(char **map)
 
 int	ft_count_collectibles(char **map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 	int	count;
 
 	i = 0;
@@ -95,15 +101,4 @@ int	ft_count_collectibles(char **map)
 		i++;
 	}
 	return (count);
-}
-
-void	ft_free_struct(t_data *data)
-{
-	free(data->img_collectible);
-	free(data->img_exit);
-	free(data->img_player);
-	free(data->img_space);
-	free(data->img_wall);
-	ft_free_map(data->map);
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 }

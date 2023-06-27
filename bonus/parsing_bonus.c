@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/27 16:49:09 by ibenli            #+#    #+#             */
+/*   Updated: 2023/06/27 16:49:19 by ibenli           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long_bonus.h"
 
-static int ft_check_extension(char *file, char *suffix)
+static int	ft_check_extension(char *file, char *suffix)
 {
-	int file_len;
-	int suffix_len;
+	int	file_len;
+	int	suffix_len;
 
 	file_len = ft_strlen(file);
 	suffix_len = ft_strlen(suffix);
-
 	if (file_len <= suffix_len)
 		return (0);
 	if (!ft_strncmp((file + (file_len - suffix_len)), suffix, 5))
@@ -17,10 +28,10 @@ static int ft_check_extension(char *file, char *suffix)
 
 static char	**ft_get_map(char *file)
 {
-	int fd;
-	char **map;
-	char *tmp;
-	char  *str;
+	int		fd;
+	char	**map;
+	char	*tmp;
+	char	*str;
 
 	fd = open(file, O_RDONLY);
 	if (!fd)

@@ -24,9 +24,9 @@ OBJ=$(SRC:%.c=%.o)
 
 OBJ_BONUS=$(SRC_BONUS:%.c=%.o)
 
-INCLUDES= -I./includes -I./utils/libft -I./utils/get-next-line -I./utils/ft_printf #-I./usr/include
+INCLUDES= -I./includes -I./utils/libft -I./utils/get-next-line -I./utils/ft_printf
 
-FLAGS= -Wall -Wextra -Werror -fsanitize=address $(INCLUDES) #-fsanitize=address
+FLAGS= -Wall -Wextra -Werror $(INCLUDES)
 
 CC= cc
 

@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/27 16:41:14 by ibenli            #+#    #+#             */
+/*   Updated: 2023/06/27 17:12:46 by ibenli           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-static int ft_check_extension(char *file, char *suffix)
+static int	ft_check_extension(char *file, char *suffix)
 {
-	int file_len;
-	int suffix_len;
+	int	file_len;
+	int	suffix_len;
 
 	file_len = ft_strlen(file);
 	suffix_len = ft_strlen(suffix);
-
 	if (file_len <= suffix_len)
 		return (0);
 	if (!ft_strncmp((file + (file_len - suffix_len)), suffix, 5))
@@ -24,7 +35,7 @@ static char	**ft_get_map(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (!fd)
-		ft_error("Error");
+		ft_error("Couldn't open the fd.");
 	tmp = get_next_line(fd);
 	str = NULL;
 	while (tmp)
@@ -43,10 +54,10 @@ char	**ft_parse_input(char *file)
 	char	**map;
 
 	if (!file || !ft_check_extension(file, ".ber"))
-		ft_error("Error");
+		ft_error("File extension is not valid.");
 	map = ft_get_map(file);
 	if (!map)
-		ft_error("Error");
+		ft_error("Couldn't get the map.");
 	ft_handle_checker(map);
 	return (map);
 }
