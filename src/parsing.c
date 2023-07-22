@@ -6,11 +6,21 @@
 /*   By: ibenli <ibenli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:41:14 by ibenli            #+#    #+#             */
-/*   Updated: 2023/06/27 17:12:46 by ibenli           ###   ########.fr       */
+/*   Updated: 2023/07/22 20:27:43 by ibenli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_error_free(char *message, char **tmp, char **str)
+{
+	if (*tmp)
+		free(*tmp);
+	if (*str)
+		free(*str);
+	ft_printf("Error\n%s\n", message);
+	exit(1);
+}
 
 static int	ft_check_extension(char *file, char *suffix)
 {
@@ -41,6 +51,8 @@ static char	**ft_get_map(char *file)
 	while (tmp)
 	{
 		str = ft_custom_strjoin(&str, tmp);
+		if (tmp && tmp[0] == '\n')
+			ft_error_free("Invalid map.", &tmp, &str);
 		free(tmp);
 		tmp = get_next_line(fd);
 	}

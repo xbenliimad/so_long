@@ -31,16 +31,16 @@ FLAGS= -Wall -Wextra -Werror $(INCLUDES)
 CC= cc
 
 %.o:%.c
-	$(CC) $(FLAGS) -c $^ -o $@
+	$(CC) $(FLAGS) -c -Imlx $^ -o $@
 
 all : $(NAME) 
 
 $(NAME) : $(OBJ) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
-	$(CC) $(FLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o $@
+	$(CC) $(FLAGS) $^ -Lmlx -lmlx -framework OpenGL -framework AppKit -o $@
 	# $(CC) $(FLAGS) $^ -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $@
 
 bonus : $(OBJ_BONUS) ./utils/libft/libft.a ./utils/ft_printf/libftprintf.a ./utils/get-next-line/get_next_line.a
-	$(CC) $(FLAGS) $^ -lmlx -framework OpenGL -framework AppKit -o so_long
+	$(CC) $(FLAGS) $^ -Lmlx -lmlx -framework OpenGL -framework AppKit -o so_long
 	# $(CC) $(FLAGS) $^ -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o so_long
 
 ./utils/libft/libft.a :
